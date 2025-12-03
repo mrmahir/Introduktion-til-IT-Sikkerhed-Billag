@@ -62,5 +62,27 @@ msf auxiliary(scanner/rservices/rlogin_login) > set ANONYMOUS_LOGIN true
 ANONYMOUS_LOGIN => true
 ```
 
+## 4: Kør modulet
+Efter alle options er indstillet som øsnket efter behov, kan man nu starte scanningen ved
+```bash
+run
+```
+eller hvis target ikke er blevet indstillet
+```bash
+run (target)
+```
+I dette tilfælde får vi dette output
+```console
+[*] Starting rlogin sweep
+[-] rlogin - Attempting: 'admin':'admin' from 'root'
+[-] Prompt: Check Point FireWall-1 authenticated RLogin server running on bulldog
+[-] Result: ***** Access denied - wrong user name or password
+[-] rlogin - Attempting: 'admin':'password' from 'daemon'
+[-] Unable to connect: The destination is invalid:
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf auxiliary(scanner/rservices/rlogin_login) >
+```
+Det kan ses i dette eksempel, at vi heldigvis ikke får hul igennem med den "default_username" og "default_password" ordlister vi har brugt. Således kan man bruge Metasploit til at penteste systemer. 
 
 
