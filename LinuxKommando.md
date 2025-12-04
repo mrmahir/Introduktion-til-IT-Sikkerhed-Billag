@@ -484,7 +484,7 @@ NyText
 ```bash
 touch Example.File               
 ```
-```bash
+```console
 ┌──(kali㉿kali)-[~]
 └─$ touch NyFil.txt  
 ```
@@ -492,7 +492,7 @@ touch Example.File
 ```bash
 cp Example.file copy                  
 ```
-```bash
+```console
 ┌──(kali㉿kali)-[~]
 └─$ cp NyFil.txt NyFil2.txt   
 ```
@@ -500,7 +500,7 @@ cp Example.file copy
 ```bash
 rm Example.file         
 ```
-```bash
+```console
 └─$ rm NyFil2.txt  
 ```
 4.9 fjern en mappe og alt hvad der i den uden at spørge om lov
@@ -509,8 +509,60 @@ rm -rf Folder
 ```
 
 ## 5. Netværk
+5.1 se din IP adresser 
+```bash
+ip a
+```
+5.2 Ping en host for at se om den er live 
+```bash
+pink [host]
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ ping dr.dk
+PING dr.dk (95.166.124.137) 56(84) bytes of data.
+64 bytes from 95.166.124.137: icmp_seq=1 ttl=60 time=2.68 ms
+--- dr.dk ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.679/2.679/2.679/0.000 ms
+```
+5.3 Secure Shell login på en fjerncomputer, krypteret
+```bash
+ssh username@host
+```
+Kan tilføje -i hvis der skal knyttes en nøglefil til loginet
+5.4 Slå et domænenavn op for at finde IP-adressen
+```bash
+nslookup google.com
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ nslookup google.com
+Server:         192.168.1.1
+Address:        192.168.1.1#53
 
-
+Non-authoritative answer:
+Name:   google.com
+Address: 216.58.207.238
+Name:   google.com
+Address: 2a00:1450:400f:803::200e
+```
+5.5 Hvis du vil se hvilken rute din afsendte pakker tager fra din computer til målet
+```bash
+traceroute host
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ traceroute google.com     
+traceroute to google.com (216.58.207.238), 30 hops max, 60 byte packets
+ 1  192.168.1.1 (192.168.1.1)  0.496 ms  0.459 ms  0.530 ms
+ 2  hidden
+ 3  hidden
+ 4  hidden  13.652 ms  12.857 ms  13.618 ms
+ 5  hidden  14.512 ms hidden  14.496 ms  14.475 ms
+ 6  209.85.242.83 (209.85.242.83)  15.126 ms  13.911 ms  15.923 ms
+ 7  arn09s19-in-f14.1e100.net (216.58.207.238)  11.719 ms  12.255 ms  11.675 ms
+```
 ## 6. Hacker Værktøjer
 6.1 Åben en "lytte-port" på din egen maskine som venter på noget forbinder tilbage til din maskine
 ```bash
