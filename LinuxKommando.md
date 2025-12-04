@@ -1,6 +1,6 @@
 # Linux Kommandolinje
 ## directory traversal
-1. pwd - Nuværende position i en sti
+1.1 pwd - Nuværende position i en sti
 ```bash
 pwd
 ```
@@ -9,7 +9,7 @@ pwd
 └─$ pwd         
 /home/kali
 ```
-2. skift directory/mappe
+1.2 skift directory/mappe
 ```bash
 cd /your/path
 ```
@@ -20,7 +20,7 @@ cd /your/path
 ┌──(kali㉿kali)-[/etc]
 └─$ 
 ```
-3. dan dig et overblik over mapper og filer
+1.3 dan dig et overblik over mapper og filer
 ```bash
 tree
 ```
@@ -52,7 +52,7 @@ tree
 │   ├── ALTER_CONVERSION.7.gz -> /usr/share/postgresql/17/man/man7/ALTER_CONVERSION.7.gz
 
 ```
-4. Find en specific mappe eller fil
+1.4 Find en specific mappe eller fil
 ```bash
 find -name "target.example"
 ```
@@ -65,7 +65,7 @@ find -name "target.example"
 ./.local/share/Trash/files/BastionHostingCreds (2)/passwords.txt
 ./passwords.txt
 ```
-5. Find en specific mappe eller fil uden at være case sensitive
+1.5 Find en specific mappe eller fil uden at være case sensitive
 ```bash
 find -iname "target.example"
 ```
@@ -78,7 +78,7 @@ find -iname "target.example"
 ./.local/share/Trash/files/BastionHostingCreds (2)/passwords.txt
 ./passwords.txt
 ```
-6. Find fil efter type
+1.6 Find fil efter type
 ```bash
 find , -name "*conf"
 ```
@@ -93,7 +93,7 @@ find , -name "*conf"
 ./.goenv/versions/1.23.1/src/net/testdata/linux-use-vc-resolv.conf
 ./.goenv/versions/1.23.1/src/net/testdata/large-ndots-resolv.conf
 ```
-7. Find fil efter størrelse hvor "+100M" betyder mere end 100 Megabytes".  Med "/" for root og systemet og med "." for nuværende mappe.
+1.7 Find fil efter størrelse hvor "+100M" betyder mere end 100 Megabytes".  Med "/" for root og systemet og med "." for nuværende mappe.
 ```bash
 find . -size +100M
 ```
@@ -104,7 +104,7 @@ find . -size +100M
 ./google-chrome-stable_current_amd64.deb.1
 ./.BurpSuite/burpbrowser/139.0.7258.127/chrome
 ```
-8. Find filer der er ændret for nyligt hvor "-10" betyder "less than 10". Med "/" for root og systemet og med "." for nuværende mappe.
+1.8 Find filer der er ændret for nyligt hvor "-10" betyder "less than 10". Med "/" for root og systemet og med "." for nuværende mappe.
 ```bash
 find . -mmin -10
 ```
@@ -120,8 +120,8 @@ find . -mmin -10
 ./.local/share/Trash/files/JustMadeThisFolder.txt
 ```
 
-## list (ls)
-1. ls (list) - viser indholdet i den mappe du befinder dig i.
+## 2. list (ls)
+2.1 ls (list) - viser indholdet i den mappe du befinder dig i.
 ```bash
 ls
 ```
@@ -134,7 +134,7 @@ article.html        google-chrome-stable_current_amd64.deb.1  Public
 combined.txt        mender.req                                replay_pid1882.log
 Desktop             mender.txt                                Templates
 ```
-2. for at se skjulte filer og rettigheder
+2.2 for at se skjulte filer og rettigheder
 ```bash
 ls -la
 ```
@@ -151,7 +151,7 @@ drwxr-xr-x  3 root root      4096 Sep  9 06:19 ..
 -rw-r--r--  1 kali kali      3526 Sep  9 06:19 .bashrc.original
 drwx------  8 kali kali      4096 Nov 16 10:51 .BurpSuite
 ```
-3. for at se alle filerne i human readable
+2.3 for at se alle filerne i human readable
 ```bash
 ls -ah
 ```
@@ -169,7 +169,7 @@ article.html        google-chrome-stable_current_amd64.deb    replay_pid1882.log
 .BurpSuite          .local                                    udp_scan.txt
 .cache              mender.req                                userpass.txt
 ```
-4. Se filstørrelse i humand readable
+2.4 Se filstørrelse i humand readable
 ```bash
 ls -lh
 ```
@@ -186,7 +186,7 @@ drwxr-xr-x 2 kali kali 4.0K Oct 23 06:27 Documents
 drwxr-xr-x 2 kali kali 4.0K Nov 22 13:46 Downloads
 -rw-r--r-- 1 kali kali 2.8K Aug  9  2021 emails.txt
 ```
-5. hvis du ønsker at sortere med sidst ændret først (brug -tr for omvendt rækkefølge)
+2.5 hvis du ønsker at sortere med sidst ændret først (brug -tr for omvendt rækkefølge)
 ```bash
 ls -t
 ```
@@ -201,7 +201,7 @@ userpass.txt            1to100.py                                 AbuIshak.ovpn 
 passwords.txt           Desktop                                   Documents           emails.txt
 users.txt               ngrok-v3-stable-linux-amd64.tgz           Music
 ```
-6. Sorteret med sidst ændret først og skjulte filer inkluderet (brug -atr for omvendt rækkefølge)
+2.6 Sorteret med sidst ændret først og skjulte filer inkluderet (brug -atr for omvendt rækkefølge)
 ```bash
 ls -at
 ```
@@ -216,7 +216,7 @@ ls -at
 udp_scan.txt                              .pyenv                           Pictures
 fragmentation_scan.txt                    .goenv                           Public
 ```
-7. Sorteret efter størrelse, største først (brug --lSr for omvendt rækkefølge)
+2.7 Sorteret efter størrelse, største først (brug --lSr for omvendt rækkefølge)
 ```bash
 ls -lS
 ```
@@ -233,7 +233,7 @@ total 265164
 -rw------- 1 kali kali      8302 Oct 23 07:09 AbuIshak.ovpn
 drwxr-xr-x 2 kali kali      4096 Oct 30 11:31 Desktop
 ```
-8. Se alle filer i en mappe med dens under-mapper og filer
+2.8 Se alle filer i en mappe med dens under-mapper og filer
 ```bash
 ls -R
 ```
@@ -257,7 +257,7 @@ emails.txt     Music                                     replay_pid1882.log
 ./Downloads:
 cacert.der  chinese-names.txt.gz  >>>>>>>>> >>>>>>>>> DenneFilLiggerIDownloads.txt <<<<<<<<< <<<<<<<<<
 ```
-9. Klassificer filetyper, for en klar forståelse. Denne sætter eksempelvis et "*" på slutningen af filer som kan køres
+2.9 Klassificer filetyper, for en klar forståelse. Denne sætter eksempelvis et "*" på slutningen af filer som kan køres
 ```bash
 ls -F
 ```
@@ -269,6 +269,7 @@ AbuIshak.ovpn  fragmentation_scan.txt                    ngrok-v3-stable-linux-a
 article.html   google-chrome-stable_current_amd64.deb    numbers.txt                      userpass.txt
 combined.txt   google-chrome-stable_current_amd64.deb.1  passwords.txt                    users.txt
 ```
+## Læsning og inspection af filer
 
 
 
