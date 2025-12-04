@@ -1,5 +1,5 @@
 # Linux Kommandolinje
-## pwd
+## directory traversal
 pwd - Nuværende position i en sti
 ```bash
 pwd
@@ -8,6 +8,17 @@ pwd
 ┌──(kali㉿kali)-[~]
 └─$ pwd         
 /home/kali
+```
+skift directory/mappe
+```bash
+cd /your/path
+```
+```console
+┌──(kali㉿kali)-[~]
+└─$ cd /etc/                                
+                                                                                                        
+┌──(kali㉿kali)-[/etc]
+└─$ 
 ```
 ## list (ls)
 ls (list) - viser indholdet i den mappe du befinder dig i.
