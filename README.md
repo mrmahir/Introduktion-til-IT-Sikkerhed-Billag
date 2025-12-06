@@ -14,6 +14,9 @@ Her skal du køre main.py enten igennem Visual Studio Code, eller med bash såle
 git clone https://github.com/mrmahir/Introduktion-til-IT-Sikkerhed-Billag.git
 ```
 ```bash
+cd Introduktion-til-IT-sikkerhed-Billag/python-opgaver
+```
+```bash
 python3 gui.py
 ```
 ## Udvikling af Bash-, Powershell- og Python-scripts til automatisering
@@ -21,6 +24,9 @@ python3 gui.py
 Her skal du køre compliance_manager.py enten igennem Visual Studio Code, eller med bash således
 ```bash
 git clone https://github.com/mrmahir/Introduktion-til-IT-sikkerhed-Billag.git
+```
+```bash
+cd Introduktion-til-IT-sikkerhed-Billag/systemHealthCheck
 ```
 ```bash
 python3 compliance_manager.py
