@@ -1,4 +1,4 @@
-# Indholdet er svarende til ogavebeskrivelsen til Eksmamen i Introduktion til IT-Sikkerhed
+# Indholdet er svarende til ogavebeskrivelsen af Eksamen i Introduktion til IT-Sikkerhed
 ## Centrale applikationer i Kali Linux
 - Metasploit.md
 - NMAP.md
