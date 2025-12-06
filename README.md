@@ -14,7 +14,7 @@ Her skal du køre main.py enten igennem Visual Studio Code, eller med bash såle
 git clone https://github.com/mrmahir/Introduktion-til-IT-Sikkerhed-Billag.git
 ```
 ```bash
-python3 main.py
+python3 gui.py
 ```
 ## Udvikling af Bash-, Powershell- og Python-scripts til automatisering
 - systemHealthCheck (mappe)
