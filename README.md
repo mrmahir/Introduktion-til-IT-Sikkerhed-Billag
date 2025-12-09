@@ -31,3 +31,7 @@ cd Introduktion-til-IT-sikkerhed-Billag/systemHealthCheck
 ```bash
 python3 compliance_manager.py
 ```
+## Kryptografi
+Kryptografi opgaverne er baked og linket til cyberchef, hvor alle de steps jeg har taget i opgaverne kan følges
+- Kryptografi.md
+
