@@ -1,11 +1,11 @@
 # Metasploit
-## 1: Start metasploit konsollen
+## 1: Start metasploit console
 ```bash
 msfconsole
 ```
 
-## 2: Find og vælg et modul
-I dette eksempel har jeg valgt at bruge en auxiliary (rlogin)
+## 2: Find and select a module
+In this example, I chose to use an auxiliary (rlogin)
 ```bash
 search auxiliary/scanner
 ```
@@ -26,7 +26,7 @@ Interact with a module by name or index. For example info 746, use 746 or use au
 msf > use auxiliary/scanner/rservices/rlogin_login
 msf auxiliary(scanner/rservices/rlogin_login) >
 ```
-Man vælger modulet ved denne kommando. Hvis det lykkes vil du få en confirmation og msf > vil skifte navn til det valgte modul
+You select the module with this command. If successful, you will get a confirmation and msf > will change name to the selected module
 ```bash
 use auxiliary/scanner/rservices/rlogin_login
 ```
@@ -34,12 +34,12 @@ use auxiliary/scanner/rservices/rlogin_login
 msf auxiliary(scanner/rservices/rlogin_login) >
 ```
 
-## 3: Konfigurer indstillinger
-Før vi kan angribe target, skal vi først konfigurer indstillingerne for modulet ved at skrive enten "Options" eller "Show Options"
+## 3: Configure settings
+Before we can attack target, we must first configure the settings for the module by typing either "Options" or "Show Options"
 ```bash
 show options
 ```
-Her kan man vælge hvilke ordlister man ønsker at bruge, da dette modul virker på ordlister og såvel som at ændre på modul indstillinger der eksempelvis gør at hvert brugernavn bliver brugt med hvert kodeord i stedet for første brugernavn kun bliver brugt til det første kodeord og meget andet. Konfigurer til dine behov.
+Here you can choose which wordlists you want to use, as this module works on wordlists as well as changing module settings that for example makes each username used with each password instead of first username only used with the first password and much else. Configure to your needs.
 ```console
 Module options (auxiliary/scanner/rservices/rlogin_login):
 
@@ -52,7 +52,7 @@ Module options (auxiliary/scanner/rservices/rlogin_login):
    DB_ALL_CREDS      false            no        Try each user/password couple stored in the current database
    ...
 ```
-Du ændrer de forskellige Options ved at skrive "set" eller "unset" for at vende tilbage til default. Husk at set korrekt, eksempelvis hvis du skal set en ordliste, skal du bruge en sti til ordliste filen. Hvis nogen skal slås til eller fra skriver man set (option) true/false. 
+You change the different Options by typing "set" or "unset" to return to default. Remember to set correctly, for example if you need to set a wordlist, you should use a path to the wordlist file. If something should be turned on or off you write set (option) true/false. 
 ```console
 msf auxiliary(scanner/rservices/rlogin_login) > set PASS_FILE passwords.txt
 PASS_FILE => passwords.txt
@@ -62,16 +62,16 @@ msf auxiliary(scanner/rservices/rlogin_login) > set ANONYMOUS_LOGIN true
 ANONYMOUS_LOGIN => true
 ```
 
-## 4: Kør modulet
-Efter alle options er indstillet som øsnket efter behov, kan man nu starte scanningen ved
+## 4: Run the module
+After all options are set as desired according to your needs, you can now start the scan with
 ```bash
 run
 ```
-eller hvis target ikke er blevet indstillet
+or if target has not been set
 ```bash
 run (target)
 ```
-I dette tilfælde får vi dette output
+In this case we get this output
 ```console
 [*] Starting rlogin sweep
 [-] rlogin - Attempting: 'admin':'admin' from 'root'
@@ -83,6 +83,6 @@ I dette tilfælde får vi dette output
 [*] Auxiliary module execution completed
 msf auxiliary(scanner/rservices/rlogin_login) >
 ```
-Det kan ses i dette eksempel, at vi heldigvis ikke får hul igennem med den "default_username" og "default_password" ordlister vi har brugt. Således kan man bruge Metasploit til at penteste systemer. 
+It can be seen in this example that fortunately we do not get through with the "default_username" and "default_password" wordlists we used. Thus you can use Metasploit to pentest systems. 
 
 

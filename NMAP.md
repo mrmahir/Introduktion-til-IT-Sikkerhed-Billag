@@ -1,12 +1,12 @@
 # NMAP 
 
-## Simpel scan
-Simpel scan, der tjekker de 1000 mest almindelige porte med deres retur-svar, samt om målet er i live.
+## Simple scan
+Simple scan that checks the 1000 most common ports with their return responses and if the target is alive.
 
 ```bash
 nmap dr.dk
 ```
-Herfra kan vi se hvilke porte der er åbne og lidt andet. Se med her.
+From here we can see which ports are open and a bit more. Look here.
 ```console
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-03 12:07 EST
 Nmap scan report for dr.dk (2.23.172.114)
@@ -21,25 +21,25 @@ PORT    STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 4.44 seconds
 
 ```
-Man kan køre dette scan på flere forskellige måder, eksempelvis kan man lave en kort pause (2s) før næste pakke for ikke
-at blive blokeret således
+You can run this scan in several different ways, for example you can make a short pause (2s) before the next package to not
+be blocked by doing so
 ```bash
 nmap --scan-delay 2s dr.dk
 ```
-Eller lave et stealth scan som har samme formål med
+Or do a stealth scan which has the same purpose with
 ```bash
 sudo nmap --sS dr.dk
 ```
-Eller en kombination af begge options. Omvendt kan man køre hurtige scan hvis man scanner flere maskiner på en gang med
+Or a combination of both options. Conversely, you can run fast scans if you scan multiple machines at once with
 ```bash
 sudo nmap -F dr.dk
 ```
-Eller hvis du øsnker at få feedback imens scanningen er igang (bemærk, denne type scan kræver "sudo" for at virke)
+Or if you want to get feedback while the scan is in progress (note, this type of scan requires "sudo" to work)
 ```bash
 sudo nmap -v dr.dk
 ```
 ## Service Version Detection (option -sV)
-For at finde hvilken software og hvilken version der kører bag en port bruger man -sV
+To find which software and which version is running behind a port, use -sV
 ```bash
 nmap --sV dr.dk
 ```
@@ -58,7 +58,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 17.37 seconds
 ```
 ## OS detection
-For at finde frem til styresystemet og derved have et stærkt recon overblik over dit targe kan man køre dette (bemærk, denne type scan kræver "sudo" for at virke)
+To find the operating system and thereby have a strong recon overview of your target, you can run this (note, this type of scan requires "sudo" to work)
 ```bash
 nmap --O dr.dk
 ```

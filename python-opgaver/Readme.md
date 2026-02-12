@@ -1,1 +1,1 @@
-Jeg synes i bør prøve at køre gui.py, synes det er så pænt :D
+I think you should try running gui.py, I think it's so nice :D

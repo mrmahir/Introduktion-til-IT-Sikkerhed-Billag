@@ -1,0 +1,14 @@
+========================================
+   WINDOWS SYSTEM DIAGNOSTIC TOOL
+========================================
+[*] Checking Antivirus Status...
+[PASS] Windows Defender is Active and Running.
+[*] Checking C: Drive Storage...
+[PASS] Disk Space Healthy: 452.6 GB free.
+[*] Checking Update History...
+Last Hotfix Installed: KB5063060 on 10/21/2025 00:00:00
+========================================
+
+Your computer is safe, but your country is never truly safe from the Ottomans Ã°Å¸â€¡Â¹Ã°Å¸â€¡Â· Ã°Å¸â€¡Â¹Ã°Å¸â€¡Â· Ã°Å¸â€¡Â¹Ã°Å¸â€¡Â·
+
+
