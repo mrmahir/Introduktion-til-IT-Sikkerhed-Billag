@@ -1,3 +1,17 @@
+
+
+
+## Introduction to IT Security - Comprehensive Practical Course
+
+A hands-on exploration of modern cybersecurity fundamentals, combining industry-standard penetration testing frameworks with practical automation and cryptographic security principles. This project demonstrates proficiency across the full spectrum of IT security:
+
+- **Offensive Security**: Leverage Kali Linux tools for network reconnaissance, vulnerability scanning, and penetration testing
+- **System Administration**: Automate security audits and compliance checks across Windows and Linux environments
+- **Secure Development**: Build practical security tools with Python, powered by AI-assisted development practices
+- **Cryptography**: Master encryption, decryption, and data protection techniques through hands-on implementations
+
+This portfolio showcases not just theoretical knowledge, but practical skills valued by security teams, DevOps professionals, and system administrators.
+
 # Content corresponds to the exam assignment description for Introduction to IT Security
 ## Core applications in Kali Linux
 - Metasploit.md
